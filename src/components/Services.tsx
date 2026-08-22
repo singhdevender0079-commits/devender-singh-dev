@@ -31,7 +31,7 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
   return (
     <Reveal delay={index * 0.08}>
       <motion.article
-        whileHover={reduced ? undefined : { y: -6 }}
+        {...(reduced ? {} : { whileHover: { y: -6 } as const })}
         transition={{ type: "spring", stiffness: 300, damping: 24 }}
         className="surface-card group flex h-full flex-col"
       >
