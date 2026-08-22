@@ -69,6 +69,7 @@ function Index() {
         <About />
         <Skills />
         <Services />
+        <Pricing />
         <Projects />
         <Experience />
         <Contact />
