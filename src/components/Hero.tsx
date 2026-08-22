@@ -3,7 +3,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { ArrowDown, ArrowUpRight, Sparkles } from "lucide-react";
 import Typed from "typed.js";
 import { profile } from "@/data/profile";
-import { CharacterStage } from "./CharacterStage";
+
 import { SocialLinks } from "./SocialLinks";
 
 function useTyped(target: React.RefObject<HTMLSpanElement | null>) {
@@ -41,7 +41,7 @@ export function Hero() {
         }}
       />
 
-      <div className="relative mx-auto grid w-full max-w-6xl items-center gap-12 px-4 pb-20 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:gap-8 lg:pb-28">
+      <div className="relative mx-auto w-full max-w-3xl px-4 pb-20 sm:px-6 lg:pb-28">
         <motion.div
           initial={reduced ? { opacity: 0 } : { opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
@@ -90,14 +90,6 @@ export function Hero() {
           <SocialLinks className="mt-8" />
         </motion.div>
 
-        <motion.div
-          initial={reduced ? { opacity: 0 } : { opacity: 0, scale: 0.94 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.9, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-          className="flex justify-center lg:justify-end"
-        >
-          <CharacterStage />
-        </motion.div>
       </div>
 
       <button
