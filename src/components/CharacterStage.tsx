@@ -41,15 +41,6 @@ export function CharacterStage() {
         loading="eager"
         decoding="async"
       />
-      {/* subtle idle float, layered via inner wrapper to keep entrance animation clean */}
-      <motion.div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 z-10 flex items-end justify-center pb-6"
-        animate={reduced ? undefined : { y: [0, -6, 0] }}
-        transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
-      >
-        <Code2 className="size-4 text-primary/40" />
-      </motion.div>
     </StageShell>
   );
 }
