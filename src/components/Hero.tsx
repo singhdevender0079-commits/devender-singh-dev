@@ -90,14 +90,6 @@ export function Hero() {
           <SocialLinks className="mt-8" />
         </motion.div>
 
-        <motion.div
-          initial={reduced ? { opacity: 0 } : { opacity: 0, scale: 0.94 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.9, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-          className="flex justify-center lg:justify-end"
-        >
-          <CharacterStage />
-        </motion.div>
       </div>
 
       <button
