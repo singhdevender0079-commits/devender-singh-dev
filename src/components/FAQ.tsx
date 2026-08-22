@@ -83,12 +83,12 @@ export function FAQ() {
             <ArrowRight className="size-4" aria-hidden="true" />
           </button>
           <a
-            href={profile.socials.fiverr}
+            href={profile.socials.upwork}
             target="_blank"
             rel="noreferrer noopener"
             className="inline-flex items-center justify-center gap-2 rounded-xl border border-border bg-card/60 px-5 py-3 text-sm font-semibold text-foreground transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/50 hover:text-primary"
           >
-            View Fiverr Profile
+            View Upwork Profile
             <ArrowUpRight className="size-4" aria-hidden="true" />
           </a>
         </div>

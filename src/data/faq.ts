@@ -41,6 +41,6 @@ export const faqs: FaqItem[] = [
   {
     question: "How can I hire you?",
     answer:
-      "You can contact me through the contact form or hire me through my Fiverr profile.",
+      "You can contact me through the contact form or hire me through my Upwork profile.",
   },
 ];

@@ -128,12 +128,12 @@ export function Services() {
                 <ArrowRight className="size-4" aria-hidden="true" />
               </button>
               <a
-                href={profile.socials.fiverr}
+                href={profile.socials.upwork}
                 target="_blank"
                 rel="noreferrer noopener"
                 className="inline-flex items-center gap-2 rounded-xl border border-border bg-card/60 px-5 py-3 text-sm font-semibold text-foreground transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/50 hover:text-primary"
               >
-                Hire Me on Fiverr
+                Hire Me on Upwork
                 <ArrowUpRight className="size-4" aria-hidden="true" />
               </a>
             </div>
@@ -141,7 +141,7 @@ export function Services() {
         </div>
       </Reveal>
 
-      {/* Fiverr card */}
+      {/* Upwork card */}
       <Reveal className="mt-6" delay={0.1}>
         <div className="surface-card flex flex-col items-start gap-6 p-7 sm:flex-row sm:items-center sm:justify-between sm:p-9">
           <div className="flex items-start gap-4">
@@ -153,20 +153,20 @@ export function Services() {
                 Available for Freelance Projects
               </h3>
               <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">
-                I also offer professional web development services through Fiverr. You can
+                I also offer professional web development services through Upwork. You can
                 hire me to build portfolio websites, business websites and full-stack web
                 applications.
               </p>
             </div>
           </div>
           <a
-            href={profile.socials.fiverr}
+            href={profile.socials.upwork}
             target="_blank"
             rel="noreferrer noopener"
             className="inline-flex shrink-0 items-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-glow)] transition-transform duration-300 hover:-translate-y-0.5"
             style={{ backgroundImage: "var(--gradient-signal)" }}
           >
-            View My Fiverr Profile
+            View My Upwork Profile
             <ArrowUpRight className="size-4" aria-hidden="true" />
           </a>
         </div>
