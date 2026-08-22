@@ -24,7 +24,7 @@ export const profile = {
   // Replace these placeholder URLs with your real profiles.
   socials: {
     github: "https://github.com/yourusername",
-    linkedin: "https://linkedin.com/in/yourusername",
+    linkedin: "https://www.linkedin.com/in/devendersingh0079",
     twitter: "https://x.com/yourusername",
     // Centralized Fiverr profile URL — replace "yourusername" with your real Fiverr username.
     fiverr: "https://www.fiverr.com/yourusername",
