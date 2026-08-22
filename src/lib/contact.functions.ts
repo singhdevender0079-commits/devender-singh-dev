@@ -23,49 +23,8 @@ function escapeHtml(value: string) {
 export const sendContactMessage = createServerFn({ method: "POST" })
   .inputValidator((input: unknown) => contactSchema.parse(input))
   .handler(async ({ data }) => {
-    const { createClient } = await import("@supabase/supabase-js");
-
-    const supabaseUrl = process.env["SUPABASE_URL"];
-    const publishableKey = process.env["SUPABASE_PUBLISHABLE_KEY"];
-    if (!supabaseUrl || !publishableKey) {
-      throw new Error("Backend is not configured.");
-    }
-
-    const supabase = createClient(supabaseUrl, publishableKey, {
-      auth: { persistSession: false, autoRefreshToken: false },
-      global: {
-        fetch: (input, init) => {
-          const headers = new Headers(init?.headers);
-          if (
-            publishableKey.startsWith("sb_") &&
-            headers.get("Authorization") === `Bearer ${publishableKey}`
-          ) {
-            headers.delete("Authorization");
-          }
-          headers.set("apikey", publishableKey);
-          return fetch(input, { ...init, headers });
-        },
-      },
-    });
-
-    const { data: inserted, error } = await supabase
-      .from("contact_messages")
-      .insert({
-        name: data.name,
-        email: data.email,
-        subject: data.subject,
-        message: data.message,
-      })
-      .select("id")
-      .single();
-
-    if (error) {
-      console.error("contact insert failed", error.message);
-      throw new Error("We couldn't save your message. Please try again.");
-    }
-
-    // Optional email delivery. Add a RESEND_API_KEY secret to enable it —
-    // the message is stored either way, so nothing is ever lost.
+    // 1. Optional email delivery. Add a RESEND_API_KEY secret to enable it —
+    //    the message is always stored, so nothing is lost without it.
     const resendKey = process.env["RESEND_API_KEY"];
     const lovableKey = process.env["LOVABLE_API_KEY"];
     let emailSent = false;
@@ -101,13 +60,50 @@ export const sendContactMessage = createServerFn({ method: "POST" })
           console.error(`resend failed [${response.status}]: ${await response.text()}`);
         } else {
           emailSent = true;
-          await supabase
-            .from("contact_messages")
-            .update({ email_sent: true })
-            .eq("id", inserted.id);
         }
       } catch (cause) {
         console.error("resend request threw", cause);
+      }
+    }
+
+    // 2. Persist the message so it can always be recovered from the backend.
+    const { createClient } = await import("@supabase/supabase-js");
+
+    const supabaseUrl = process.env["SUPABASE_URL"];
+    const publishableKey = process.env["SUPABASE_PUBLISHABLE_KEY"];
+    if (!supabaseUrl || !publishableKey) {
+      throw new Error("Backend is not configured.");
+    }
+
+    const supabase = createClient(supabaseUrl, publishableKey, {
+      auth: { persistSession: false, autoRefreshToken: false },
+      global: {
+        fetch: (input, init) => {
+          const headers = new Headers(init?.headers);
+          if (
+            publishableKey.startsWith("sb_") &&
+            headers.get("Authorization") === `Bearer ${publishableKey}`
+          ) {
+            headers.delete("Authorization");
+          }
+          headers.set("apikey", publishableKey);
+          return fetch(input, { ...init, headers });
+        },
+      },
+    });
+
+    const { error } = await supabase.from("contact_messages").insert({
+      name: data.name,
+      email: data.email,
+      subject: data.subject,
+      message: data.message,
+      email_sent: emailSent,
+    });
+
+    if (error) {
+      console.error("contact insert failed", error.message);
+      if (!emailSent) {
+        throw new Error("We couldn't send your message. Please try again.");
       }
     }
 
