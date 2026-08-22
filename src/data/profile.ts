@@ -8,13 +8,13 @@ export const profile = {
   headline: "Full Stack Web Developer | JavaScript Developer | Future Software Engineer",
   roles: [
     "Full Stack Web Developer",
+    "Freelance Web Developer",
+    "Portfolio Website Developer",
+    "Full Stack Application Developer",
     "JavaScript Developer",
-    "Backend Developer",
-    "Problem Solver",
-    "Future Software Engineer",
   ],
   intro:
-    "I build modern, responsive and scalable web applications with clean UI, powerful backend systems and practical problem-solving.",
+    "Full stack web developer and freelancer building modern, responsive, and scalable web applications — from developer portfolios to full-stack platforms with clean UI, powerful backends, and practical problem-solving.",
   about:
     "I am a BTech Computer Science student and developer passionate about web development, backend development and problem solving.",
   tagline: "Building ideas into modern digital experiences.",
@@ -26,6 +26,8 @@ export const profile = {
     github: "https://github.com/yourusername",
     linkedin: "https://linkedin.com/in/yourusername",
     twitter: "https://x.com/yourusername",
+    // Centralized Fiverr profile URL — replace "yourusername" with your real Fiverr username.
+    fiverr: "https://www.fiverr.com/yourusername",
   },
 } as const;
 
@@ -60,6 +62,7 @@ export const navItems = [
   { id: "home", label: "Home" },
   { id: "about", label: "About" },
   { id: "skills", label: "Skills" },
+  { id: "services", label: "Services" },
   { id: "projects", label: "Projects" },
   { id: "experience", label: "Experience" },
   { id: "contact", label: "Contact" },
