@@ -6,7 +6,6 @@ type RevealProps = {
   className?: string;
   delay?: number;
   y?: number;
-  as?: "div" | "li" | "section" | "article";
 };
 
 export function Reveal({ children, className, delay = 0, y = 20 }: RevealProps) {

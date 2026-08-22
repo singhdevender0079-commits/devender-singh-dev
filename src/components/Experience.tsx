@@ -19,8 +19,8 @@ export function Experience() {
       <div className="mt-12 grid gap-10 lg:grid-cols-[1.15fr_0.85fr]">
         <ol className="relative space-y-8 border-l border-border pl-7">
           {experience.map((entry, index) => (
-            <Reveal key={entry.period} delay={index * 0.06} as="li">
-              <li className="relative">
+            <li key={entry.period} className="relative">
+              <Reveal delay={index * 0.06}>
                 <span
                   aria-hidden="true"
                   className="absolute -left-[35px] top-1.5 grid size-4 place-items-center rounded-full border border-primary/50 bg-background"
@@ -46,8 +46,8 @@ export function Experience() {
                     ))}
                   </ul>
                 ) : null}
-              </li>
-            </Reveal>
+              </Reveal>
+            </li>
           ))}
         </ol>
 
