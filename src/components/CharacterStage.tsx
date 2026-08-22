@@ -1,5 +1,4 @@
 import { motion, useReducedMotion } from "framer-motion";
-import { Code2 } from "lucide-react";
 import avatarAsset from "@/assets/avatar.png.asset.json";
 
 function StageShell({ children }: { children: React.ReactNode }) {
