@@ -52,7 +52,7 @@ export function CharacterStage() {
     >
       <motion.div
         className="relative aspect-square w-full overflow-hidden rounded-[2rem] border border-border bg-card/40 [transform-style:preserve-3d] sm:aspect-[4/5] lg:aspect-square"
-        style={reduced ? undefined : { rotateX, rotateY }}
+        style={reduced ? {} : { rotateX, rotateY }}
         initial={{ opacity: 0, scale: 0.96 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
@@ -86,12 +86,8 @@ export function CharacterStage() {
           src={avatarAsset.url}
           alt="Devender Singh — developer avatar"
           className="relative z-10 mx-auto h-full w-full object-contain p-2 drop-shadow-[0_24px_45px_color-mix(in_oklab,var(--primary)_40%,transparent)]"
-          style={
-            reduced
-              ? undefined
-              : { x: avatarX, y: avatarY, translateZ: 80 }
-          }
-          animate={reduced ? undefined : { translateY: [0, -8, 0] }}
+          style={reduced ? {} : { x: avatarX, y: avatarY, translateZ: 80 }}
+          animate={reduced ? {} : { translateY: [0, -8, 0] }}
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
           loading="eager"
           decoding="async"
@@ -101,7 +97,7 @@ export function CharacterStage() {
         <motion.div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 z-20 mix-blend-screen opacity-60"
-          style={reduced ? undefined : { background: shine, translateZ: 100 }}
+          style={reduced ? {} : { background: shine, translateZ: 100 }}
         />
       </motion.div>
     </div>
