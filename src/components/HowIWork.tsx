@@ -100,7 +100,7 @@ export function HowIWork() {
             <li key={step.number} className="relative">
               <span
                 aria-hidden="true"
-                className="absolute -left-8 top-6 size-[15px] rounded-full border-2 border-primary bg-background lg:left-0 lg:-top-10"
+                className="absolute size-[15px] rounded-full border-2 border-primary bg-background max-lg:-left-8 max-lg:top-6 lg:left-0 lg:-top-10"
                 style={{ boxShadow: "var(--shadow-glow)" }}
               />
               <StepCard step={step} index={index} />
