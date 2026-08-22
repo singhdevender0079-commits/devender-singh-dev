@@ -91,7 +91,7 @@ function PricingCard({ plan, index }: { plan: PricingPlan; index: number }) {
             onClick={() => scrollTo("contact")}
             className={`group/btn inline-flex w-full items-center justify-center gap-1.5 rounded-xl px-4 py-3 text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5 ${
               isPopular
-                ? "text-primary-foreground shadow-[var(--shadow-glow)] hover:shadow-[var(--shadow-glow-strong)]"
+                ? "text-primary-foreground shadow-[var(--shadow-glow)] hover:brightness-110"
                 : "border border-border bg-card/60 text-foreground hover:border-primary/50 hover:text-primary"
             }`}
             {...(isPopular
