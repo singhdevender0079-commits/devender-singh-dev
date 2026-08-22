@@ -12,4 +12,23 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  vite: {
+    // Pre-bundle heavy client deps in a single optimizer pass. Without this they get
+    // discovered lazily, which triggers a mid-session re-optimization where framer-motion
+    // and react end up on different dep bundles -> "Cannot read properties of null (reading 'useRef')".
+    optimizeDeps: {
+      include: [
+        "react",
+        "react-dom",
+        "react/jsx-runtime",
+        "framer-motion",
+        "typed.js",
+        "three",
+        "@react-three/fiber",
+        "@react-three/drei",
+        "lucide-react",
+      ],
+    },
+  },
 });
+
