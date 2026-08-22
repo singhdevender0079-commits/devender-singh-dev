@@ -26,8 +26,8 @@ export const profile = {
     github: "https://github.com/yourusername",
     linkedin: "https://www.linkedin.com/in/devendersingh0079",
     twitter: "https://x.com/yourusername",
-    // Centralized Fiverr profile URL — replace "yourusername" with your real Fiverr username.
-    fiverr: "https://www.fiverr.com/yourusername",
+    // Centralized Upwork profile URL.
+    upwork: "https://www.upwork.com/freelancers/~0126010b36126c30ec?mp_source=share",
   },
 } as const;
 
