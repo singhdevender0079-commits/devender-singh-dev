@@ -1,4 +1,4 @@
-import { Suspense, lazy, useEffect, useState } from "react";
+import React, { Suspense, lazy, useEffect, useState } from "react";
 import { Code2, Terminal } from "lucide-react";
 
 const DeveloperScene = lazy(() => import("./three/DeveloperScene"));
@@ -71,11 +71,11 @@ class SceneBoundary extends React.Component<
   { children: React.ReactNode },
   { failed: boolean }
 > {
-  state = { failed: false };
+  override state = { failed: false };
   static getDerivedStateFromError() {
     return { failed: true };
   }
-  render() {
+  override render() {
     return this.state.failed ? <Fallback /> : this.props.children;
   }
 }
